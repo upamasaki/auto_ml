@@ -1,0 +1,11 @@
+I:\GoogleDrive\2020\022_auto_ml>py -m venv venv-x  
+
+I:\GoogleDrive\2020\022_auto_ml>.\venv-x\Scripts\activate.bat      
+
+(venv-x) I:\GoogleDrive\2020\022_auto_ml>python I:\GoogleDrive\2020\022_auto_ml\001_sample\example_regression.py
+
+(venv-x) I:\GoogleDrive\2020\022_auto_ml> pip install scikit-learn
+
+python -m pip install --upgrade pip
+
+pip install auto-sklearn

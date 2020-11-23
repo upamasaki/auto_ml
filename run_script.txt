@@ -1,0 +1,30 @@
+docker build -t ubuntu1804:latest .
+
+docker run -it ubuntu1804:latest /bin/bash
+
+docker run -it -p 8889:8889
+
+jupyter notebook --notebook-dir=/opt/nb --ip='0.0.0.0' --port=8889 --no-browser --allow-root
+docker run -cpuset-cpus=0-4 -it -v I:\GoogleDrive\2020\022_auto_ml\001_sample:/opt/nb -p 8888:8888 mfeurer/auto-sklearn:master /bin/bash
+
+docker run  -it -v I:\GoogleDrive\2020\022_auto_ml\001_sample:/opt/nb -p 8888:8888 mfeurer/auto-sklearn:master /bin/bash -c "mkdir -p /opt/nb && jupyter notebook --notebook-dir=/opt/nb --ip='0.0.0.0' --port=8888 --no-browser --allow-root"
+
+
+
+
+################################
+#
+Docker Image
+A Docker image is also provided on dockerhub. To download from dockerhub, use:
+
+docker pull mfeurer/auto-sklearn:master
+You can also verify that the image was downloaded via:
+
+docker images  # Verify that the image was downloaded
+This image can be used to start an interactive session as follows:
+
+docker run -it mfeurer/auto-sklearn:master
+To start a Jupyter notebook, you could instead run e.g.:
+
+docker run -it -v $PWD:/opt/nb -p 8888:8888 mfeurer/auto-sklearn:master /bin/bash -c "mkdir -p /opt/nb && jupyter notebook --notebook-dir=/opt/nb --ip='0.0.0.0' --port=8888 --no-browser --allow-root"
+Alternatively, it is possible to use the development version of auto-sklearn by replacing all occurences of master by development.
